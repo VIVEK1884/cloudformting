@@ -1,37 +1,40 @@
-# cloudformating 
-{
-  "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "",
-  "Metadata": {},
-  "Parameters": {
-    "MyAppVpcCidr": {
-      "Description": "Choose Cidr for Vpc",
-      "Type": "String",
-      "Default": "10.0.0.0/24"
-    },
-    "Subnet1Cidr": {
-      "Description": "Choose Cidr for Subnet1",
-      "Type": "String",
-      "Default": "10.0.0.0/25"
-    },
-    "Subnet2Cidr": {
-      "Description": "Choose Cidr for Subnet1",
-      "Type": "String",
-      "Default": "10.0.0.128/25"
-    },
-    "Subnet1AZs": {
-      "Description": "Choose AZ for Subnet1",
+# cloudformating   
+{  
+  ## "AWSTemplateFormatVersion": "2010-09-09",  
+  "Description": "",      
+  "Metadata": {},      
+  "Parameters": {    
+    "MyAppVpcCidr": {      
+      "Description": "Choose Cidr for Vpc",      
+      "Type": "String",      
+      ##F VPC FOR 256 IPs    
+      "Default": "10.0.0.0/24"  ##F VPC FOR 256 IPs     
+    },      
+    ## creat  public subnet (subsnet1,subnet2)     
+      
+    "Subnet1Cidr": {     
+      "Description": "Choose Cidr for Subnet1",        
+      "Type": "String ",    
+      "Default": "10.0.0.0/25"  ## subnet with 128 IPs    
+    },     
+    "Subnet2Cidr": {   
+      "Description": "Choose Cidr for Subnet1",   
+      "Type": "String",        
+      "Default": "10.0.0.128/25"   
+    },   
+    "Subnet1AZs": {     
+      "Description": "Choose AZ for Subnet1",    
+      "Type": "AWS::EC2::AvailabilityZone::Name"    
+    },   
+    "Subnet2AZs": {    
+      "Description": "Choose AZ for Subnet1",      
       "Type": "AWS::EC2::AvailabilityZone::Name"
-    },
-    "Subnet2AZs": {
-      "Description": "Choose AZ for Subnet1",
-      "Type": "AWS::EC2::AvailabilityZone::Name"
-    },
-    "WebserverKeyName": {
-      "Description": "Choose Key Name",
+    },    
+    "WebserverKeyName": {    
+      "Description": "Choose Key Name",        
       "Type": "AWS::EC2::KeyPair::KeyName"
-    },
-    "WebserverInstanceType": {
+    },   
+    "WebserverInstanceType": {      
       "Description": "Choose Instance Type",
       "Type": "String",
       "Default": "t2.micro",
@@ -43,7 +46,7 @@
     },
     "WebserverAMIID": {
       "Description": "Add AMI for webserver",
-      "Type": "String"
+      "Type": "String" 
     }
   },
   "Mappings": {},
